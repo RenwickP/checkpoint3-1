@@ -57,3 +57,5 @@ Dive right into the coding, it doesn't matter which step below you do first howe
 - List items can be marked 'complete' separately from being deleted
 - Use something like masonry to render the lists more elegantly
 - Use a better popup then window.confirm for a more clean user experience (see the SweetAlertJS documentation for ideas on this)
+"# checkpoint3" 
+"# checkpoint3" 
