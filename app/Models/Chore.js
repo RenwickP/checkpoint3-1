@@ -1,4 +1,4 @@
-import { generateId } from "../Utils.js";
+import { generateId } from "../utils.js";
 
 export default class Chore {
   constructor({ id = generateId(), name, sessionId }) {
