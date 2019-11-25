@@ -43,12 +43,3 @@ class ListService {
 
 const SERVICE = new ListService();
 export default SERVICE;
-
-// let sessionToRemoveSpeakerFrom = store.State.sessions.find(
-//   s => s.id == sessionId
-
-// let speakerIndex = sessionToRemoveSpeakerFrom.speakers.findIndex(
-//   s => s.id == speakerId
-// );
-// sessionToRemoveSpeakerFrom.speakers.splice(speakerIndex, 1);
-// store.saveState();
