@@ -57,14 +57,15 @@ export default class ListController {
     // _drawLists();
   }
 
-  deleteList(name, listId) {
+  //FIXME What data do we need? Are we using name, or something else?
+  deleteChore(choreId, listId) {
     let deletes = window.confirm("Did you complete your task???");
-    debugger;
+
     if (deletes == true) {
-      ListService.deleteLists(name, listId);
+      ListService.deleteChore(choreId, listId);
       _drawLists();
     }
   }
-
+  // want both ids list and item
   //TODO: Your app will need the ability to create, and delete both lists and listItems
 }

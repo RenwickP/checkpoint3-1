@@ -28,9 +28,9 @@ export default class List {
           class="form-control"
           placeholder="task"
         />
+        </form>
         ${this.makeChore()}
         
-        </form>
         <button class="btn btn-danger btn-sm" onclick="app.listController.removeTaskForm('${
           this.id
         }')">Delete</button>

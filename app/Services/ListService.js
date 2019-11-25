@@ -28,15 +28,27 @@ class ListService {
     store.saveState();
   }
 
-  deleteLists(choreIndex, listId) {
-    // debugger;
-    let removeChore = store.State.lists.find(chores => chores.id == choreIndex);
-    //I cant find .chores because it cant be accessed.
-    let remove = removeChore.chores.findIndex(chores => chores.id == listId);
-    store.State.lists.chores.splice(remove, 1);
+  deleteChore(choreId, listId) {
+    debugger;
+    // FIXME this is iterating over the lists array to find a single list, how can you use this?
+    let foundList = store.State.lists.find(list => list.id == choreId);
+
+    // FIXME Do you need to find the index? Do we already have it?
+    let remove = foundList.chores.findIndex(chores => chores.id == listId);
+    // FIXME We have our list above, now we need to remove one of its chores
+    foundList.chores.splice(remove, 1);
     store.saveState();
   }
 }
 
 const SERVICE = new ListService();
 export default SERVICE;
+
+// let sessionToRemoveSpeakerFrom = store.State.sessions.find(
+//   s => s.id == sessionId
+
+// let speakerIndex = sessionToRemoveSpeakerFrom.speakers.findIndex(
+//   s => s.id == speakerId
+// );
+// sessionToRemoveSpeakerFrom.speakers.splice(speakerIndex, 1);
+// store.saveState();
