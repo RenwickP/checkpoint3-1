@@ -1,5 +1,6 @@
 import List from "../Models/List.js";
 import store from "../store.js";
+import Chore from "../Models/Chore.js";
 
 //Public
 class ListService {
@@ -14,12 +15,25 @@ class ListService {
     console.log(store.State.lists);
     store.saveState();
   }
-  newChore(chores) {
-    let newChore = new 
+  newChore(choresNew) {
+    let chore = new Chore(choresNew);
+    let findChore = store.State.lists.find(s => s.id == chore.sessionId);
+    findChore.chores.push(chore);
+    store.saveState();
   }
+
   removeTaskForm(taskindex) {
     let removeForm = store.State.lists.findIndex(list => list.id == taskindex);
     store.State.lists.splice(removeForm, 1);
+    store.saveState();
+  }
+
+  deleteLists(choreIndex, listId) {
+    // debugger;
+    let removeChore = store.State.lists.find(chores => chores.id == choreIndex);
+    //I cant find .chores because it cant be accessed.
+    let remove = removeChore.chores.findIndex(chores => chores.id == listId);
+    store.State.lists.chores.splice(remove, 1);
     store.saveState();
   }
 }

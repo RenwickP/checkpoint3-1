@@ -20,13 +20,14 @@ export default class ListController {
     _drawLists();
   }
 
+  // Need to fix names Task is the large form and chores are the sub objects in the Tasks. Tasks name changes. Look Down
   addTask(event) {
     event.preventDefault();
     let task = event.target;
     let newForm = {
       name: task.name.value
     };
-    console.log(newForm);
+    // console.log(newForm);
     ListService.addList(newForm);
     _drawLists();
     task.reset();
@@ -36,19 +37,33 @@ export default class ListController {
     event.preventDefault();
     let newChore = event.target;
     let chore = {
-      name: newChore.name.vale,
-      choreId: newId
+      name: newChore.name.value,
+      sessionId: newId
     };
-
-    console.log(chore);
+    // console.log(chore);
     ListService.newChore(chore);
     _drawLists();
     newChore.reset();
   }
 
   removeTaskForm(taskId) {
-    ListService.removeTaskForm(taskId);
-    _drawLists();
+    let remove = window.confirm("Do you want to delete?");
+
+    if (remove == true) {
+      ListService.removeTaskForm(taskId);
+      _drawLists();
+    }
+    // ListService.removeTaskForm(taskId);
+    // _drawLists();
+  }
+
+  deleteList(name, listId) {
+    let deletes = window.confirm("Did you complete your task???");
+    debugger;
+    if (deletes == true) {
+      ListService.deleteLists(name, listId);
+      _drawLists();
+    }
   }
 
   //TODO: Your app will need the ability to create, and delete both lists and listItems

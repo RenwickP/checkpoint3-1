@@ -1,8 +1,15 @@
 import List from "./Models/List.js";
+import Chore from "./Models/List.js";
 
 let _state = {
   /** @type {List[]} */
-  lists: []
+
+  lists: [
+    // new List({
+    //   name: "",
+    //   chores: []
+    // })
+  ]
 };
 
 //NOTE You should not need to change the code from this point down
